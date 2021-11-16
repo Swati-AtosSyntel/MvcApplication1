@@ -1,0 +1,41 @@
+﻿@*@model MvcApplication1.Models.Employee*@
+@model IEnumerable<MvcApplication1.Models.Employee>
+@{
+    ViewBag.Title = "Index";
+    var emp = ViewData["employee"] as MvcApplication1.Models.Employee;
+    var e1 = ViewBag.employees;
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Create","Create","Emp")
+
+@*<ul>
+    <li>@Model.empid</li>
+    <li>@Model.ename</li>
+    <li>@Model.location</li>
+</ul>*@
+<h3>Employee List</h3>
+<ul>
+    @foreach (var e in Model)
+    {
+        <li>@e.empid</li>
+        <li>@e.ename</li>
+        <li>@e.location</li>
+    }
+    </ul>
+ <h3>ViewData</h3>
+<ul>
+    <li>@emp.ename</li>
+</ul>
+<hr/>
+<h3>ViewBag</h3>
+
+<ul>
+    @foreach (var employee in e1)
+    {
+        <li>@employee.empid</li>
+        <li>@employee.ename</li>
+        <li>@employee.location</li>
+    }
+</ul>
